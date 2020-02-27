@@ -4190,6 +4190,10 @@ S2.define('select2/dropdown/attachBody',[
   };
 
   AttachBody.prototype._hideDropdown = function (decorated) {
+    if ($(document.activeElement).closest(this.$dropdownContainer).length) {
+        $(document.activeElement).blur();
+    }
+
     this.$dropdownContainer.detach();
   };
 
